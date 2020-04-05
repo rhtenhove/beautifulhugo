@@ -1,13 +1,13 @@
 # Beautiful Hugo - An adaptation of the Beautiful Jekyll theme
 
-![Beautiful Hugo Theme Screenshot](https://github.com/halogenica/beautifulhugo/blob/master/images/screenshot.png)
+![Beautiful Hugo Theme Screenshot](images/screenshot.png)
 
 ## Installation
 
-    $ mkdir themes
-    $ cd themes
-    $ git submodule add https://github.com/halogenica/beautifulhugo.git beautifulhugo
-    
+```bash
+$ mkdir themes
+$ git clone https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
+``` 
 
 See [the Hugo documentation](https://gohugo.io/themes/installing/) for more information.
 
@@ -36,16 +36,6 @@ Then, you can generate a different style by running:
 hugo gen chromastyles --style=trac > static/css/syntax.css
 ```
 
-#### Pygments - Old server side syntax highlighting
-
-To use this feature install Pygments (`pip install Pygments`) and add the following to your site parameters:
-
-```
-pygmentsStyle = "trac"
-pygmentsUseClassic = true
-```
-
-Pygments is mostly compatable with the newer Chroma. It is slower but has some additional theme options. I recommend Chroma over Pygments. Pygments will use `syntax.css` for highlighting, unless you also set the config `pygmentsUseClasses = false` which will generate the style code directly in the HTML file. 
 
 #### Highlight.js - Client side syntax highlighting
 ```
