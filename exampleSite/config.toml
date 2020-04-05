@@ -1,6 +1,5 @@
 baseurl = "https://username.github.io"
-DefaultContentLanguage = "en"
-#DefaultContentLanguage = "ja"
+DefaultContentLanguage = "en"  # https://gohugo.io/content-management/multilingual/
 title = "Beautiful Hugo"
 theme = "beautifulhugo"
 metaDataFormat = "yaml"
@@ -14,21 +13,21 @@ pygmentsCodefencesGuessSyntax = true
 #googleAnalytics = "XXX"
 
 [Params]
-#  homeTitle = "Beautiful Hugo Theme" # Set a different text for the header on the home page
+#  homeTitle = "Beautiful Hugo Theme"  # Set a different text for the header on the home page
   subtitle = "Build a beautiful and simple website in minutes"
   mainSections = ["post","posts"]
-  logo = "img/avatar-icon.png" # Expecting square dimensions
+  logo = "img/avatar-icon.png"  # Expecting square dimensions
   favicon = "img/favicon.ico"
-  dateFormat = "January 2, 2006"
-  commit = false
-  rss = true
-  comments = true
-  readingTime = true
-  wordCount = true
-  useHLJS = true
-  socialShare = true
-  delayDisqus = true
-  showRelatedPosts = true
+  dateFormat = "January 2, 2006"  # https://gohugo.io/functions/dateformat/
+  commit = false  # ??
+  rss = true  # ?? Links directly to first page in main menu?
+  comments = true  # Enables a comment section below each post
+  readingTime = true  # Shows reading time above post excerpt
+  wordCount = true  # Shows word count above post excerpt
+  useHLJS = true  # Use client side highlighting
+  socialShare = true  # ??
+  delayDisqus = true  # Only load Disqus after clicking a "Show Comments" button
+  showRelatedPosts = true  # ??
 #  hideAuthor = true
 #  gcse = "012345678901234567890:abcdefghijk" # Get your code from google.com/cse. Make sure to go to "Look and Feel" and change Layout to "Full Width" and Theme to "Classic"
 
@@ -44,6 +43,7 @@ pygmentsCodefencesGuessSyntax = true
 #  src = "img/hexagon.jpg"
 #  desc = "Hexagon"
 
+# The items below enable footer icons for each service, and will generate the appropriate links.
 [Author]
   name = "Some Person"
   website = "yourwebsite.com"
