@@ -3,21 +3,21 @@
 {{ $data := .Data }}
 
 <div class="container" role="main">
-  <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"> 
+  <div class="col-lg-8 offset-2 col-md-10 offset-1">
     <article class="post-preview">
-      <div class="panel-group" id="accordion">
+      <div class="card-group" id="accordion">
         {{ range $key, $value := .Data.Terms.ByCount }}
-          <div class="panel panel-default">
+          <div class="card card-default">
             <a class="collapsed" role="button" data-toggle="collapse" data-target="#collapse{{ $value.Name }}" data-parent="#accordion">
-                <div class="panel-heading" id="header{{ $value.Name }}">
-                  <h4 class="panel-title">
+                <div class="card-heading" id="header{{ $value.Name }}">
+                  <h4 class="card-title">
                       {{ $value.Name }}
-                    <span class="badge">{{ $value.Count }}</span>
+                    <span class="badge badge-pill">{{ $value.Count }}</span>
                   </h4>
                 </div>
             </a>
-            <div id="collapse{{ $value.Name }}" class="panel-collapse collapse">
-              <div class="panel-body">
+            <div id="collapse{{ $value.Name }}" class="card-collapse collapse">
+              <div class="card-body">
                 <a href="{{ $.Site.LanguagePrefix | absURL }}/{{ $data.Plural }}/{{ $value.Name | urlize }}/" class="list-group-item view-all">
                 View all</a>
                 <div class="list-group">
@@ -33,6 +33,5 @@
     </article>
   </div>
 </div>
-
 
 {{ end }}

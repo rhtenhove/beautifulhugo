@@ -1,51 +1,45 @@
-<nav class="navbar navbar-default navbar-fixed-top navbar-custom">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">{{ i18n "toggleNavigation" }}</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
-    </div>
-
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
+<nav class="nav navbar-expand-lg fixed-top navbar-custom">
+  <div class="container">
+    <a class="navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+    <button type="button" class="navbar-toggler float-right" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false" aria-label="{{ i18n "toggleNavigation" }}">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse float-right" id="main-navbar">
+      <ul class="nav navbar-nav ml-auto mt-2 mt-lg-0">
         {{ range .Site.Menus.main.ByWeight }}
           {{ if .HasChildren }}
-            <li class="navlinks-container">
-              <a class="navlinks-parent">{{ .Name }}</a>
+            <li class="navlinks-container nav-item">
+              <a class="navlinks-parent nav-link">{{ .Name }}</a>
               <div class="navlinks-children">
                 {{ range .Children }}
-                  <a href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
                 {{ end }}
               </div>
             </li>
           {{ else }}
-            <li>
-              <a title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
+            <li class="nav-item">
+              <a class="nav-link" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
             </li>
           {{ end }}
         {{ end }}
 
         {{ if .Site.IsMultiLingual }}
           {{ if ge (len .Site.Languages) 3 }}
-            <li class="navlinks-container">
-              <a class="navlinks-parent">{{ i18n "languageSwitcherLabel" }}</a>
+            <li class="navlinks-container nav-item">
+              <a class="nav-link" class="navlinks-parent">{{ i18n "languageSwitcherLabel" }}</a>
               <div class="navlinks-children">
                 {{ range .Site.Languages }}
                   {{ if not (eq .Lang $.Site.Language.Lang) }}
-                  <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                  <a class="nav-link" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
                   {{ end }}
                 {{ end }}
               </div>
             </li>
           {{ else }}
-            <li>
+            <li class="nav-item">
               {{ range .Site.Languages }}
                 {{ if not (eq .Lang $.Site.Language.Lang) }}
-                  <a href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
+                  <a class="nav-link" href="/{{ .Lang }}" lang="{{ .Lang }}">{{ default .Lang .LanguageName }}</a>
                 {{ end }}
               {{ end }}
             </li>
@@ -53,9 +47,9 @@
         {{ end }}
 
         {{ if isset .Site.Params "gcse" }}
-          <li>
-            <a href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
-              <span class="hidden-sm hidden-md hidden-lg">{{ i18n "gcseLabelShort" }}</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
+          <li class="nav-item">
+            <a class="nav-link" href="#modalSearch" data-toggle="modal" data-target="#modalSearch" style="outline: none;">
+              <span class="d-sm-none d-md-none d-lg-none">{{ i18n "gcseLabelShort" }}</span> <span id="searchGlyph" class="glyphicon glyphicon-search"></span>
             </a>
           </li>
         {{ end }}
@@ -88,7 +82,7 @@
           <gcse:search></gcse:search>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">{{ i18n "gcseClose" }}</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ i18n "gcseClose" }}</button>
         </div>
       </div>
     </div>
