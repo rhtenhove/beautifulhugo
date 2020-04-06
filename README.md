@@ -13,41 +13,23 @@ See [the Hugo documentation](https://gohugo.io/themes/installing/) for more info
 
 ## Extra Features
 
+- Disqus
+- Staticman
+- [Google Analytics](https://google.com/analytics/)
+- [Commit SHA in footer](commit-sha-in-the-footer)
+
+> See `config.yaml` on how to configure these
+
 ### Responsive
 
 This theme is designed to look great on both large-screen and small-screen (mobile) devices.
 
 ### Syntax highlighting
 
-This theme has support for either Hugo's lightning fast Chroma, or both server side and client side highlighting. See [the Hugo docs for more](https://gohugo.io/content-management/syntax-highlighting/).
+This theme has support for either Hugo's lightning fast Chroma or client side highlighting using `highlight.js`.
+See `exampleSite/config.yaml` on how to configure this.
 
-#### Chroma - New server side syntax highlighting
-
-To enable Chroma, add the following to your site parameters:
-
-```
-pygmentsCodeFences = true
-pygmentsUseClasses = true
-```
-
-Then, you can generate a different style by running:
-
-```
-hugo gen chromastyles --style=trac > static/css/syntax.css
-```
-
-
-#### Highlight.js - Client side syntax highlighting
-```
-[Params]
-    useHLJS = true
-```
-
-Client side highlighting does not require pygments to be installed. This will use `highlight.min.css` instead of `syntax.css` for highlighting (effectively disabling Chroma). Highlight.js has a wider range of support for languages and themes, and an alternative highlighting engine.
-
-### Disqus support
-
-To use this feature, uncomment and fill out the `disqusShortname` parameter in `config.toml`.
+See [Hugo docs](https://gohugo.io/getting-started/configuration-markup/#highlight) on how to configure Highlight.
 
 ### Staticman support
 
@@ -55,7 +37,7 @@ Add *Staticman* configuration section in `config.toml` or `config.yaml`
 
 Sample `config.toml` configuration
 
-```
+```toml
 [Params.staticman]
   api = "https://<API-ENDPOINT>/v3/entry/{GIT-HOST}/<USERNAME>/<REPOSITORY-BLOGNAME>/master/comments"
 [Params.staticman.recaptcha]
@@ -71,7 +53,7 @@ The section `[Params.staticman.recaptcha]` is *optional*.  To add reCAPTCHA to y
 
 You must also configure the `staticman.yml` in you blog website.
 
-```
+```yaml
 comments:
   allowedFields: ["name", "email", "website", "comment"]
   branch            : "master"
@@ -96,21 +78,18 @@ comments:
 
 If you *don't* have the section `[Params.staticman]` in `config.toml`, you *won't* need the section `reCaptcha`  in `staticman.yml`
 
-### Google Analytics
+### Commit SHA in the footer
 
-To add Google Analytics, simply sign up to [Google Analytics](https://www.google.com/analytics/) to obtain your Google Tracking ID, and add this tracking ID to the `googleAnalytics` parameter in `config.toml`.
+If the source of your site is in a Git repo, the SHA corresponding to the commit the site is built from can be shown on the footer.
+To do so, two site parameters `commit` has to be defined in the config file `config.yaml`:
 
-### Commit SHA on the footer
-
-If the source of your site is in a Git repo, the SHA corresponding to the commit the site is built from can be shown on the footer. To do so, two site parameters `commit` has to be defined in the config file `config.toml`:
-
-```
-enableGitInfo = true
-[Params]
-  commit = "https://github.com/<username>/<siterepo>/tree/"
+```yaml
+enableGitInfo: true
+Params:
+  commit: "https://github.com/<username>/<siterepo>/tree/"
 ```
 
-See at [vincenttam/vincenttam.gitlab.io](https://gitlab.com/vincenttam/vincenttam.gitlab.io) for an example of how to add it to a continuous integration system.
+> See at [vincenttam/vincenttam.gitlab.io](https://gitlab.com/vincenttam/vincenttam.gitlab.io) for an example of how to add it to a continuous integration system.
 
 ### Multilingual
 
@@ -167,8 +146,9 @@ This is column 2.
 
 ## About
 
-This is an adaptation of the Jekyll theme [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) by [Dean Attali](https://deanattali.com/aboutme#contact). It supports most of the features of the original theme, and many new features. It has diverged from the Jekyll theme over time, with years of community updates.
+This is an adaptation of the Jekyll theme [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) by [Dean Attali](https://deanattali.com/aboutme).
+It supports most of the features of the original theme, and many new features. It has diverged from the Jekyll theme over time, with years of community updates.
 
 ## License
 
-MIT Licensed, see [LICENSE](https://github.com/halogenica/Hugo-BeautifulHugo/blob/master/LICENSE).
+MIT Licensed, see [LICENSE](LICENSE).

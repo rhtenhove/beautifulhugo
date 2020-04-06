@@ -3,10 +3,28 @@ DefaultContentLanguage: en  # https://gohugo.io/content-management/multilingual/
 title: Beautiful Hugo
 theme: beautifulhugo
 metaDataFormat: yaml
-#disqusShortname: XXX
-#googleAnalytics: XXX
+#disqusShortname: XXX  # Enter your disqus shortname
+#googleAnalytics: XXX  # Enter your Google Analytics Tracking ID
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true  # Enable rendering HTML tags in markdown
+  highlight:
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    noClasses: true
+    style: monokailight
+    tabWidth: 4
+
+enableGitInfo: false  # Enable in conjunction with `Params: commit:`
+
 Params:
-#  homeTitle: Beautiful Hugo Theme  # Set a different text for the header on the home page
+  # homeTitle: Beautiful Hugo Theme  # Set a different text for the header on the home page
   subtitle: Build a beautiful and simple website in minutes
   mainSections:
     - post
@@ -14,16 +32,16 @@ Params:
   logo: img/avatar-icon.png  # Expecting square dimensions
   favicon: img/favicon.ico
   dateFormat: 'January 2, 2006'  # https://gohugo.io/functions/dateformat/
-  commit: false
+  # commit: "https://github.com/<username>/<siterepo>/tree/"  # Show commit sha in the footer - Also add `enableGitInfo: true` above `Params:`
   rss: true
   comments: true  # Enables a comment section below each post
   readingTime: true  # Shows reading time above post excerpt
   wordCount: true  # Shows word count above post excerpt
-  useHLJS: true  # Use client side highlighting using highlight.js
+  useHLJS: false  # Client side highlighting using highlight.js - overrides Hugo's Chroma engine
   socialShare: true
   delayDisqus: true  # Only load Disqus after clicking a "Show Comments" button
   showRelatedPosts: true
-#  hideAuthor: true
+  hideAuthor: false
 #  gcse: '012345678901234567890:abcdefghijk'
 #  bigimg:
 #    - src: img/triangle.jpg
@@ -64,6 +82,7 @@ Author:
   kaggle: username
   weibo: username
   slack: username
+
 menu:
   main:
     - name: Blog
