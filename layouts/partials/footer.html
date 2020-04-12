@@ -30,6 +30,7 @@
           {{ end }}
         </ul>
         <p class="credits copyright text-muted">
+          &copy;
           {{ if .Site.Author.name }}
             {{ if .Site.Author.website }}
               <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
@@ -38,16 +39,16 @@
             {{ end }}
           {{ end }}
 
-          &nbsp;&bull;&nbsp;&copy;
+          &nbsp;&bull;&nbsp;
           {{ if .Site.Params.since }}
             {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
           {{ else }}
             {{ .Site.LastChange.Format "2006" }}
           {{ end }}
 
-          {{ if .Site.Title }}
+          {{ if .Site.Author.email }}
             &nbsp;&bull;&nbsp;
-            <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+            <a href="mailto:{{ .Site.Author.email }}">{{ .Site.Author.email }}</a>
           {{ end }}
         </p>
         <!-- Please don't remove this, keep my open source work credited :) -->
