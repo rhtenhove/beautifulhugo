@@ -3,8 +3,8 @@
   {{ end }}
 <footer>
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 offset-2 col-md-10 offset-1">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
         <ul class="list-inline text-center footer-links">
           {{ range .Site.Data.beautifulhugo.social.social_icons }}
             {{- if isset $.Site.Author .id }}
