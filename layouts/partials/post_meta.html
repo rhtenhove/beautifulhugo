@@ -1,5 +1,5 @@
 <span class="post-meta">
-  {{ if .Date }}
+  {{ if or .Date .Lastmod }}
   {{ if .Site.Params.showPublishDate }}
     {{ $lastmodstr := default (i18n "dateFormat") .Site.Params.dateformat | .Lastmod.Format }}
     {{ $datestr := default (i18n "dateFormat") .Site.Params.dateformat | .Date.Format }}
