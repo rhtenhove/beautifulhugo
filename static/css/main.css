@@ -35,8 +35,9 @@ p + p {
     margin: 24px 0 6px 0;
 }
 p a {
-  /* text-decoration: underline */
-  color: #008AFF;
+  text-decoration: underline;
+  font-weight: 600;
+  color: #404040;
 }
 h1,h2,h3,h4,h5,h6 {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
