@@ -3,13 +3,11 @@
 ![Beautiful Hugo Theme Screenshot](images/screenshot.png)
 
 ## Installation
-
+In your hugo root directory:
 ```bash
 $ mkdir themes
 $ git clone https://github.com/halogenica/beautifulhugo.git themes/beautifulhugo
 ``` 
-
-See [the Hugo documentation](https://gohugo.io/themes/installing/) for more information.
 
 ## Extra Features
 
@@ -18,7 +16,7 @@ See [the Hugo documentation](https://gohugo.io/themes/installing/) for more info
 - [Google Analytics](https://google.com/analytics/)
 - [Commit SHA in footer](commit-sha-in-the-footer)
 
-> See `config.yaml` on how to configure these
+> See `exampleSite/config.yaml` for examples and comments on how to configure these
 
 ### Responsive
 
@@ -27,9 +25,8 @@ This theme is designed to look great on both large-screen and small-screen (mobi
 ### Syntax highlighting
 
 This theme has support for either Hugo's lightning fast Chroma or client side highlighting using `highlight.js`.
-See `exampleSite/config.yaml` on how to configure this.
 
-See [Hugo docs](https://gohugo.io/getting-started/configuration-markup/#highlight) on how to configure Highlight.
+See [Hugo docs](https://gohugo.io/getting-started/configuration-markup/#highlight) on how to configure Hugo's Highlight.
 
 ### Staticman support
 
