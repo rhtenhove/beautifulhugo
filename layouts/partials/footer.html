@@ -62,36 +62,38 @@
 </footer>
 
 {{- if .Site.Params.selfHosted -}}
-<script src="{{ "js/katex.min.js" | absURL }}"></script>
-<script src="{{ "js/auto-render.min.js" | absURL }}"></script>
-<script src="{{ "js/jquery.min.js" | absURL }}"></script>
-<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+  <!--TODO: Import single minified file here-->
+  <!--  <script src="{{ "js/all.min.js" | absURL }}"></script> -->
 {{- else -}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/katex.min.js" integrity="sha256-F/Xda58SPdcUCr+xhSGz9MA2zQBPb0ASEYKohl8UCHc=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.11.1/contrib/auto-render.min.js" integrity="sha256-90d2pnfw0r4K8CZAWPko4rpFXQsZvJhTBGYNkipDprI=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  {{ range .Site.Params.Imports.js }}
+  <script src="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" ></script>
+  {{ end }}
 {{- end }}
 
 <script src="{{ "js/main.js" | absURL }}"></script>
+  <script src="{{ "js/load-photoswipe.js" | absURL }}"></script>
+
 {{- if .Site.Params.staticman }}
 <script src="{{ "js/staticman.js" | absURL }}"></script>
+  {{- if .Site.Params.staticman.recaptcha -}}
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  {{- end -}}
 {{- end }}
-{{- if  .Site.Params.useHLJS }}
-<script src="{{ "js/highlight.min.js" | absURL }}"></script>
-<script> hljs.initHighlightingOnLoad(); </script>
-<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script>
-{{- end -}}
-<script> renderMathInElement(document.body); </script>
 
-{{- if .Site.Params.selfHosted -}}
-<script src="{{ "js/photoswipe.min.js" | absURL }}"></script>
-<script src="{{ "js/photoswipe-ui-default.min.js" | absURL }}"></script>
-{{- else -}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe.min.js" integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.3/photoswipe-ui-default.min.js" integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin="anonymous"></script>
+{{- if  .Site.Params.useHLJS }}
+  {{- if .Site.Params.selfHosted -}}
+<!--  TODO: Import-->
+  <script src="{{ "js/highlight.min.js" | absURL }}"></script>
+  {{- else -}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+  {{- end }}
+<script> hljs.initHighlightingOnLoad(); </script>
+
+  <!--  TODO: Need this?-->
+  <!--<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script>-->
 {{- end -}}
-<script src="{{ "js/load-photoswipe.js" | absURL }}"></script>
+
+<script> renderMathInElement(document.body); </script>
 
 <!-- Google Custom Search Engine -->
 {{ if .Site.Params.gcse }}
