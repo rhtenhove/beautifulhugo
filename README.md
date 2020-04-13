@@ -1,4 +1,4 @@
-# Beautiful Hugo - An adaptation of the Beautiful Jekyll theme
+# Beautiful Hugo - An adaptation of the Beautiful Jekyll theme - Bootstrap v4
 
 ![Beautiful Hugo Theme Screenshot](images/screenshot.png)
 
