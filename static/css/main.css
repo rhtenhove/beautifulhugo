@@ -21,6 +21,10 @@ body {
   font-weight: normal;
 }
 
+.highlight {
+  margin: 25px;
+}
+
 @media only screen and (max-width: 767px) {
   .container[role=main] {
     margin-left: 0;
@@ -60,6 +64,8 @@ a:focus {
 blockquote {
   color: #808080;
   font-style: italic;
+  margin-top: 10px;
+  margin-left: 10px;
 }
 
 blockquote p:first-child {
@@ -483,7 +489,7 @@ footer .theme-by {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #999;
   font-size: 15px;
-  margin-bottom: 30px;
+  margin: 30px 0 30px 30px;
 }
 
 .blog-tags:before {
