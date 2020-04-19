@@ -61,37 +61,25 @@
   </div>
 </footer>
 
-{{- if .Site.Params.selfHosted -}}
-  <!--TODO: Import single minified file here-->
-  <!--  <script src="{{ "js/all.min.js" | absURL }}"></script> -->
-{{- else -}}
   {{ range .Site.Params.Imports.js }}
-  <script src="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" ></script>
+    <script src="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" ></script>
   {{ end }}
-{{- end }}
+  {{- if  .Site.Params.HLJS.use }}
+    {{ with .Site.Params.HLJS }}
+      <script src="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" ></script>
+      <script> hljs.initHighlightingOnLoad(); </script>
+    {{- end }}
+  {{- end }}
 
-<script src="{{ "js/main.js" | absURL }}"></script>
+  <script src="{{ "js/main.js" | absURL }}"></script>
   <script src="{{ "js/load-photoswipe.js" | absURL }}"></script>
 
-{{- if .Site.Params.staticman }}
+{{- if .Site.Params.staticman.use }}
 <script src="{{ "js/staticman.js" | absURL }}"></script>
   {{- if .Site.Params.staticman.recaptcha -}}
   <script src='https://www.google.com/recaptcha/api.js'></script>
   {{- end -}}
 {{- end }}
-
-{{- if  .Site.Params.useHLJS }}
-  {{- if .Site.Params.selfHosted -}}
-<!--  TODO: Import-->
-  <script src="{{ "js/highlight.min.js" | absURL }}"></script>
-  {{- else -}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
-  {{- end }}
-<script> hljs.initHighlightingOnLoad(); </script>
-
-  <!--  TODO: Need this?-->
-  <!--<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script>-->
-{{- end -}}
 
 <script> renderMathInElement(document.body); </script>
 

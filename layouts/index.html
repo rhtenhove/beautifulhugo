@@ -16,7 +16,7 @@
         </div>
 
         {{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
-          <ul class="pager main-pager">
+          <ul class="pagination main-pagination">
             {{ if .Paginator.HasPrev }}
               <li class="previous page-item">
                 <a href="{{ .Permalink }}page/{{ .Paginator.Prev.PageNumber }}/" class="page-link">&larr; {{ i18n "newerPosts" }}</a>

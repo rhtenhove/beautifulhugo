@@ -44,24 +44,22 @@
   {{ hugo.Generator -}}
 <!-- Links and stylesheets -->
   <link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}">
-  {{- if .Site.Params.selfHosted -}}
-    <!--TODO: Import single minified file here-->
-<!--  <link rel="stylesheet" href="{{ "css/all.min.css" | absURL }}" />-->
-  {{- else -}}
-    {{ range .Site.Params.Imports.css }}
-    <link rel="stylesheet" href="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" />
-    {{ end }}
-  {{- end -}}
+
+  {{ range .Site.Params.Imports.css }}
+  <link rel="stylesheet" href="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" />
+  {{ end }}
+
+{{- if .Site.Params.HLJS.use }}
+{{ with .Site.Params.HLJS }}
+<link rel="stylesheet" href="{{ .url }}" integrity="{{ .integrity }}" crossorigin="anonymous" />
+{{- end -}}
+{{- end -}}
 
   <link rel="stylesheet" href="{{ "css/main.css" | absURL }}" />
 
-  {{- if .Site.Params.staticman -}}
+  {{- if .Site.Params.staticman.use -}}
   <link rel="stylesheet" href="{{ "css/staticman.css" | absURL }}" />
   {{- end -}}
 
-  {{- if .Site.Params.useHLJS }}
-  <link rel="stylesheet" href="{{ "css/highlight.min.css" | absURL }}" />
-  {{- end -}}
-  
 {{- partial "head_custom.html" . }}
 {{ template "_internal/google_analytics_async.html" . }}

@@ -141,6 +141,9 @@ This is column 2.
 {{< endcolumn >}}
 ```
 
+## Self hosted
+There used to be a self-hosted option, where all the imports would be part of this repo. This has been removed. I recommend using [Decentraleyes](https://decentraleyes.org/) if you'd like to keep things local.
+
 ## About
 
 This is an adaptation of the Jekyll theme [Beautiful Jekyll](https://deanattali.com/beautiful-jekyll/) by [Dean Attali](https://deanattali.com/aboutme).

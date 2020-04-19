@@ -28,7 +28,7 @@
           {{ end }}
 
           {{ if $.Scratch.Get "has_related" }}
-                  <h4 class="see-also">{{ i18n "seeAlso" }}</h4>
+                  <h4>{{ i18n "seeAlso" }}</h4>
                   <ul>
                 {{ $num_to_show := .Site.Params.related_content_limit | default 5 }}
                 {{ range first $num_to_show (where (where .Site.Pages ".Params.tags" "intersect" .Params.tags) "Permalink" "!=" .Permalink) }}
@@ -41,14 +41,14 @@
       </article>
 
       {{ if ne .Type "page" }}
-        <ul class="pager blog-pager">
+        <ul class="pagination justify-content-center">
           {{ if .PrevInSection }}
-            <li class="previous" class="page-item">
+            <li class="previous page-item float-left">
               <a href="{{ .PrevInSection.Permalink }}" class="page-link" data-toggle="tooltip" data-placement="top" title="{{ .PrevInSection.Title }}">&larr; {{ i18n "previousPost" }}</a>
             </li>
           {{ end }}
           {{ if .NextInSection }}
-            <li class="next" class="page-item">
+            <li class="next page-item float-right">
               <a href="{{ .NextInSection.Permalink }}" class="page-link" data-toggle="tooltip" data-placement="top" title="{{ .NextInSection.Title }}">{{ i18n "nextPost" }} &rarr;</a>
             </li>
           {{ end }}
@@ -75,7 +75,7 @@
           </div>
           {{ end }}
         {{ end }}
-        {{ if .Site.Params.staticman }}
+        {{ if .Site.Params.staticman.use }}
           <div class="staticman-comments">
             {{ partial "staticman-comments.html" . }}
           </div>

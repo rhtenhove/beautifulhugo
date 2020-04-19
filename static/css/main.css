@@ -92,7 +92,7 @@ hr.small {
 
 .main-explain-area {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 15px inherit;
+  padding: 15px;
 }
 
 .hideme {
@@ -295,8 +295,7 @@ img {
 
 .navbar-custom .nav .navlinks-container .navlinks-children a {
   display: block;
-  padding: 10px;
-  padding-left: 30px;
+  padding: 10px 10px 10px 30px;
   background: #f5f5f5;
   text-decoration: none !important;
   border-width: 0 1px 1px 1px;
@@ -382,7 +381,6 @@ footer .theme-by {
 }
 
 /* --- Post preview --- */
-
 .post-preview {
   padding: 20px 0;
   border-bottom: 1px solid #eee;
@@ -415,9 +413,8 @@ footer .theme-by {
 }
 
 .post-preview .post-subtitle {
-  margin: 0;
   font-weight: 300;
-  margin-bottom: 10px;
+  margin: 0 0 10px;
 }
 
 .post-preview .post-meta,
@@ -499,7 +496,7 @@ footer .theme-by {
 .blog-tags a {
   color: #008AFF;
   text-decoration: none;
-  padding: 0px 5px;
+  padding: 0 5px;
 }
 
 .blog-tags a:before {
@@ -659,7 +656,6 @@ footer .theme-by {
 }
 
 .header-section.has-img .no-img {
-  margin-top: 0;
   background: #FCFCFC;
   margin: 0 0 40px;
   padding: 20px 0;
@@ -708,9 +704,9 @@ footer .theme-by {
   border-bottom-left-radius: 5px;
 }
 
-/* --- Pager --- */
+/* --- Pagination --- */
 
-.pager li a {
+.pagination li a {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-size: 14px;
@@ -723,23 +719,23 @@ footer .theme-by {
 }
 
 @media only screen and (min-width: 768px) {
-  .pager li a {
+  .pagination li a {
     padding: 15px 25px;
   }
 }
 
-.pager li a:hover,
-.pager li a:focus {
+.pagination li a:hover,
+.pagination li a:focus {
   color: #FFF;
   background: #0085a1;
   border: 1px solid #0085a1;
 }
 
-.pager {
+.pagination {
   margin: 10px 0 0;
 }
 
-.pager.blog-pager {
+.pagination.blog-pagination {
   margin-top: 10px;
 }
 
@@ -748,7 +744,7 @@ h4.panel-title > span.badge {
 }
 
 @media only screen and (min-width: 768px) {
-  .pager.blog-pager {
+  .pagination.blog-pagination {
     margin-top: 40px;
   }
 }
@@ -869,11 +865,6 @@ div.splitbox div.right {
   color: #FFF;
   background: #0085a1;
   border: 1px solid #0085a1;
-}
-
-/* Related posts */
-h4.see-also {
-  margin-top: 20px;
 }
 
 /* Sharing */
