@@ -1,6 +1,6 @@
 // Dean Attali / Beautiful Jekyll 2016
 
-var main = {
+const main = {
 
   bigImgEl : null,
   numImgs : null,
@@ -8,10 +8,10 @@ var main = {
   init : function() {
     // Shorten the navbar after scrolling a little bit down
     $(window).scroll(function() {
-        if ($(".navbar").offset().top > 50) {
-            $(".navbar").addClass("top-nav-short");
+        if ($(".nav").offset().top > 50) {
+            $(".nav").addClass("top-nav-short");
         } else {
-            $(".navbar").removeClass("top-nav-short");
+            $(".nav").removeClass("top-nav-short");
         }
     });
 

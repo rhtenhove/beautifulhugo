@@ -1,18 +1,18 @@
-<nav class="nav navbar-expand-lg fixed-top navbar-custom">
-  <div class="container">
+<nav class="nav navbar-expand fixed-top">
     <a class="navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
-    <button type="button" class="navbar-toggler float-right" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false" aria-label="{{ i18n "toggleNavigation" }}">
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="{{ i18n "toggleNavigation" }}">
       <i class="fas fa-bars"></i>
     </button>
-    <div class="collapse navbar-collapse float-right" id="main-navbar">
-      <ul class="nav navbar-nav ml-auto mt-2 mt-lg-0">
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="navbar-nav mr-auto">
         {{ range .Site.Menus.main.ByWeight }}
           {{ if .HasChildren }}
-            <li class="navlinks-container nav-item">
-              <a class="navlinks-parent nav-link">{{ .Name }}</a>
-              <div class="navlinks-children">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .Name }}</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {{ range .Children }}
-                  <a class="nav-link" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
+                  <a class="dropdown-item" href="{{ .URL | relLangURL }}">{{ .Name }}</a>
                 {{ end }}
               </div>
             </li>
@@ -65,8 +65,6 @@
         </div>
       </div>
     {{ end }}
-
-  </div>
 </nav>
 
 <!-- Search Modal -->

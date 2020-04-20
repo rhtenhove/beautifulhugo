@@ -163,137 +163,109 @@ img {
 
 /* --- Navbar --- */
 
-.navbar-custom {
+nav {
   background: #F5F5F5;
   border-bottom: 1px solid #EAEAEA;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.navbar-custom .nav li a {
+nav li a {
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 
-.navbar-custom .navbar-brand,
-.navbar-custom .nav li a {
+nav .navbar-brand,
+nav li a {
   font-weight: 800;
   color: #404040;
 }
 
-.navbar-custom .navbar-brand:hover,
-.navbar-custom .navbar-brand:focus,
-.navbar-custom .nav li a:hover,
-.navbar-custom .nav li a:focus {
+nav .navbar-brand:hover,
+nav .navbar-brand:focus,
+nav li a:hover,
+nav li a:focus {
   color: #0085a1;
 }
 
-.navbar-custom .navbar-brand-logo {
-  padding-top: 0;
-  -webkit-transition: padding .5s ease-in-out;
-  -moz-transition: padding .5s ease-in-out;
-  transition: padding .5s ease-in-out;
-}
-
-.navbar-custom .navbar-brand-logo img {
-  height: 50px;
-  -webkit-transition: height .5s ease-in-out;
-  -moz-transition: height .5s ease-in-out;
-  transition: height .5s ease-in-out;
-}
-
-.navbar-custom.top-nav-short .navbar-brand-logo {
-  padding-top: 5px;
-}
-
-.navbar-custom.top-nav-short .navbar-brand-logo img {
-  height: 40px;
-}
-
 @media only screen and (min-width: 768px) {
-  .navbar-custom {
-    padding: 20px 0;
-    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
-    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+  nav {
+    padding: 20px;
     transition: background .5s ease-in-out, padding .5s ease-in-out;
   }
 
-  .navbar-custom.top-nav-short {
+  nav .navbar-brand {
+    margin: 0 20px;
+  }
+
+  nav.top-nav-short {
     padding: 0;
   }
 }
 
-.navbar-custom .avatar-container {
+nav .avatar-container {
   opacity: 1;
   visibility: visible;
   position: absolute;
-  -webkit-transition: visibility 0.5s, opacity 0.5s ease-in-out;
-  -moz-transition: visibility 0.5s, opacity 0.5s ease-in-out;
   transition: visibility 0.5s, opacity 0.5s ease-in-out;
   left: 50%;
   width: 50px;
-  margin-top: -25px;
 }
 
-.navbar-custom .avatar-container .avatar-img-border {
+nav .avatar-container .avatar-img-border {
   width: 100%;
   border-radius: 50%;
   margin-left: -50%;
   display: inline-block;
   box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .8);
-  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
 }
 
-.navbar-custom .avatar-container .avatar-img {
+nav .avatar-container .avatar-img {
   width: 100%;
   border-radius: 50%;
   display: block;
 }
 
-.navbar-custom.top-nav-short .avatar-container {
+nav.top-nav-short .avatar-container {
   opacity: 0;
   visibility: hidden;
 }
 
-.navbar-custom.top-nav-expanded .avatar-container {
+nav.top-nav-expanded .avatar-container {
   display: none;
 }
 
 @media only screen and (min-width: 768px) {
-  .navbar-custom .avatar-container {
+  nav .avatar-container {
     width: 100px;
-    margin-top: -50px;
   }
 
-  .navbar-custom .avatar-container .avatar-img-border {
+  nav .avatar-container .avatar-img-border {
     width: 100%;
     box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, .8);
   }
 
-  .navbar-custom .avatar-container .avatar-img {
+  nav .avatar-container .avatar-img {
     width: 100%;
   }
 }
 
 /* Multi-level navigation links */
-.navbar-custom .nav .navlinks-container {
+nav .navlinks-container {
   position: relative;
 }
 
-.navbar-custom .nav .navlinks-parent:after {
+nav .navlinks-parent:after {
   content: " \25BC";
 }
 
-.navbar-custom .nav .navlinks-children {
+nav .navlinks-children {
   width: 100%;
   display: none;
   word-break: break-word;
 }
 
-.navbar-custom .nav .navlinks-container .navlinks-children a {
+nav .navlinks-container .navlinks-children a {
   display: block;
   padding: 10px 10px 10px 30px;
   background: #f5f5f5;
@@ -303,33 +275,33 @@ img {
 }
 
 @media only screen and (max-width: 767px) {
-  .navbar-custom .nav .navlinks-container.show-children {
+  nav .navlinks-container.show-children {
     background: #eee;
   }
 
-  .navbar-custom .nav .navlinks-container.show-children .navlinks-children {
+  nav .navlinks-container.show-children .navlinks-children {
     display: block;
   }
 }
 
 @media only screen and (min-width: 768px) {
-  .navbar-custom .nav .navlinks-container {
+  nav .navlinks-container {
     text-align: center;
   }
 
-  .navbar-custom .nav .navlinks-container:hover {
+  nav .navlinks-container:hover {
     background: #eee;
   }
 
-  .navbar-custom .nav .navlinks-container:hover .navlinks-children {
+  nav .navlinks-container:hover .navlinks-children {
     display: block;
   }
 
-  .navbar-custom .nav .navlinks-children {
+  nav .navlinks-children {
     position: absolute;
   }
 
-  .navbar-custom .nav .navlinks-container .navlinks-children a {
+  nav .navlinks-container .navlinks-children a {
     padding-left: 10px;
     border: 1px solid #eaeaea;
     border-width: 0 1px 1px;
@@ -543,10 +515,7 @@ footer .theme-by {
 
 .intro-header.big-img {
   background: no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
   margin-top: 51px; /* The small navbar is 50px tall + 1px border */
   margin-bottom: 35px;
 }
@@ -557,12 +526,7 @@ footer .theme-by {
   height: 100%;
   opacity: 0;
   background: no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
   background-size: cover;
-  -o-background-size: cover;
-  -webkit-transition: opacity 1s linear;
-  -moz-transition: opacity 1s linear;
   transition: opacity 1s linear;
 }
 
@@ -606,8 +570,6 @@ footer .theme-by {
 
 .intro-header.big-img .page-heading hr {
   box-shadow: 1px 1px 3px #000;
-  -webkit-box-shadow: 1px 1px 3px #000;
-  -moz-box-shadow: 1px 1px 3px #000;
 }
 
 .intro-header.big-img .post-heading .post-meta {
@@ -803,8 +765,6 @@ table tr td :last-child {
 }
 
 .reset-box-sizing, .reset-box-sizing *, .reset-box-sizing *:before, .reset-box-sizing *:after, .gsc-inline-block {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 
