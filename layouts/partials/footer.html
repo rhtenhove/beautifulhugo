@@ -53,7 +53,7 @@
         <!-- Please don't remove this, keep my open source work credited :) -->
         <p class="credits theme-by text-muted">
           {{ i18n "poweredBy" . | safeHTML }}
-          {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.repoCommitsUrl }}{{ .GitInfo.Hash }}">{{ substr .GitInfo.AbbreviatedHash }}</a>]{{ end }}
+          {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.repoCommitsUrl }}{{ .GitInfo.Hash }}">{{ .GitInfo.AbbreviatedHash }}</a>]{{ end }}
         </p>
       </div>
     </div>
