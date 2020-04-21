@@ -4,7 +4,7 @@
 <footer>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-lg-8">
+      <div class="col-8">
         <ul class="list-inline text-center footer-links">
           {{ range .Site.Data.beautifulhugo.social.social_icons }}
             {{- if isset $.Site.Author .id }}
@@ -38,7 +38,6 @@
               {{ .Site.Author.name }}
             {{ end }}
           {{ end }}
-
           &nbsp;&bull;&nbsp;
           {{ if .Site.Params.since }}
             {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
@@ -54,7 +53,7 @@
         <!-- Please don't remove this, keep my open source work credited :) -->
         <p class="credits theme-by text-muted">
           {{ i18n "poweredBy" . | safeHTML }}
-          {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.commit }}{{ .GitInfo.Hash }}">{{ substr .GitInfo.Hash 0 8 }}</a>]{{ end }}
+          {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.repoCommitsUrl }}{{ .GitInfo.Hash }}">{{ substr .GitInfo.AbbreviatedHash }}</a>]{{ end }}
         </p>
       </div>
     </div>
