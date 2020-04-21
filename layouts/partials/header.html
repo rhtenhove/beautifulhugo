@@ -1,22 +1,8 @@
 {{- partial "load-photoswipe-theme.html" . }}
 
-{{ if .IsHome }}
-  {{ if .Site.Params.homeTitle }}{{ $.Scratch.Set "title" .Site.Params.homeTitle }}{{ else }}{{ $.Scratch.Set "title" .Site.Title }}{{ end }}
-  {{ if .Site.Params.subtitle }}{{ $.Scratch.Set "subtitle" .Site.Params.subtitle }}{{ end }}
-  {{ if .Site.Params.bigimg }}{{ $.Scratch.Set "bigimg" .Site.Params.bigimg }}{{ end }}
-{{ else }}
-  {{ $.Scratch.Set "title" .Title }}
-  {{ if .Params.subtitle }}{{ $.Scratch.Set "subtitle" .Params.subtitle }}{{ end }}
-  {{ if .Params.bigimg }}{{ $.Scratch.Set "bigimg" .Params.bigimg }}{{ end }}
-{{ end }}
-{{ $bigimg := $.Scratch.Get "bigimg" }}
-{{ $title := $.Scratch.Get "title" }}
-{{ $subtitle := $.Scratch.Get "subtitle" }}
-
-{{ if or $bigimg $title }}
-  {{ if $bigimg }}
-    <div id="header-big-imgs" data-num-img={{len $bigimg}} 
-      {{range $i, $img := $bigimg}}
+  {{ if .Params.bigimg }}
+    <div id="header-big-imgs" data-num-img={{len .Params.bigimg}}
+      {{range $i, $img := .Params.bigimg}}
          {{ if (fileExists $img.src)}} 
           data-img-src-{{add $i 1}}="{{$img.src | absURL }}" 
          {{else}}
@@ -26,21 +12,18 @@
       {{end}}></div>
   {{ end }}
 
-  <header class="header-section {{ if $bigimg }}has-img{{ end }}">
-    {{ if $bigimg }}
-      <div class="intro-header big-img">
-        {{ $subtitle := $.Scratch.Get "subtitle" }}
-        <div class="container">
+  <header class="header-section">
+      <div class="intro-header {{ if .Params.bigimg }}big-img{{ else }}no-img{{ end }}">
           <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-6">
               <div class="{{ .Type }}-heading">
-                <h1>{{ with $.Scratch.Get "title" }}{{.}}{{ else }}<br/>{{ end }}</h1>
-                  {{ if $subtitle }}
+                <h1>{{ .Params.title }}</h1>
+                  {{ if .Params.subtitle }}
                     {{ if eq .Type "page" }}
                       <hr class="small">
-                      <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
+                      <span class="{{ .Type }}-subheading">{{ .Params.subtitle }}</span>
                     {{ else }}
-                      <h2 class="{{ .Type }}-subheading">{{ $subtitle }}</h2>
+                      <h2 class="{{ .Type }}-subheading">{{ .Params.subtitle }}</h2>
                     {{ end }}
                   {{ end }}
                   {{ if eq .Type "post" }}
@@ -49,39 +32,6 @@
               </div>
             </div>
           </div>
-        </div>
-        <span class="img-desc" style="display: inline;"></span>
+        {{ if .Params.bigimg }}<span class="img-desc"></span>{{ end }}
       </div>
-    {{end}}
-    <div class="intro-header no-img">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="{{ .Type }}-heading">
-              {{ if eq .Type "list" }}
-                <h1>{{ if .Data.Singular }}#{{ end }}{{ .Title }}</h1>
-              {{ else }}
-                <h1>{{ with $title }}{{.}}{{ else }}<br/>{{ end }}</h1>
-              {{ end }}
-              {{ if ne .Type "post" }}
-                <hr class="small">
-              {{ end }}
-              {{ if $subtitle }}
-                {{ if eq .Type "page" }}
-                  <span class="{{ .Type }}-subheading">{{ $subtitle }}</span>
-                {{ else }}
-                  <h2 class="{{ .Type }}-subheading">{{ $subtitle }}</h2>
-                {{ end }}
-              {{ end }}
-              {{ if eq .Type "post" }}
-                {{ partial "post_meta.html" . }}
-              {{ end }}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </header>
-{{ else }}
-  <div class="intro-header"></div>
-{{ end }}
