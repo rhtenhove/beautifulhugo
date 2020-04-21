@@ -6,7 +6,9 @@
   <body>
     {{ partial "nav.html" . }}
     {{ block "header" . }}{{ partial "header.html" . }}{{ end }}
+    <div class="container">
     {{ block "main" . }}{{ end }}
+    </div>
     {{ partial "footer.html" . }}
     {{ block "footer" . }}{{ end }}
   </body>
