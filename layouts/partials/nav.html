@@ -1,14 +1,14 @@
-<nav class="nav navbar-expand fixed-top">
+<nav class="nav navbar-expand-lg fixed-top">
     <a class="navbar-brand" href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="{{ i18n "toggleNavigation" }}">
+    <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="{{ i18n "toggleNavigation" }}">
       <i class="fas fa-bars"></i>
     </button>
 
     <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav ml-auto">
         {{ range .Site.Menus.main.ByWeight }}
           {{ if .HasChildren }}
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown text-right">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ .Name }}</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {{ range .Children }}
@@ -17,7 +17,7 @@
               </div>
             </li>
           {{ else }}
-            <li class="nav-item">
+            <li class="nav-item text-right">
               <a class="nav-link" title="{{ .Name }}" href="{{ .URL  | relLangURL }}">{{ .Name }}</a>
             </li>
           {{ end }}

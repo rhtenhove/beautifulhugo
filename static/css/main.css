@@ -179,6 +179,7 @@ nav .navbar-brand,
 nav li a {
   font-weight: 800;
   color: #404040;
+  margin: 0 10px;
 }
 
 nav .navbar-brand:hover,
@@ -190,11 +191,16 @@ nav li a:focus {
 
 @media only screen and (min-width: 768px) {
   nav {
-    padding: 20px;
+    padding: 20px 0;
     transition: background .5s ease-in-out, padding .5s ease-in-out;
   }
 
-  nav .navbar-brand {
+  nav #main-navbar {
+    margin-right: 20px;
+  }
+
+  nav .navbar-brand
+  {
     margin: 0 20px;
   }
 
@@ -507,11 +513,6 @@ footer .theme-by {
 }
 
 /* --- Post and page headers --- */
-
-.intro-header {
-  margin: 80px 0 20px;
-  position: relative;
-}
 
 .intro-header.big-img {
   background: no-repeat center center;
