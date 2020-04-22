@@ -2,62 +2,56 @@
     {{ partial "page_meta.html" . }}
   {{ end }}
 <footer>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-8">
-        <ul class="list-inline text-center footer-links">
-          {{ range .Site.Data.beautifulhugo.social.social_icons }}
-            {{- if isset $.Site.Author .id }}
-              <li class="list-inline-item">
-                <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}">
-                  <span class="fa-stack fa-lg">
-                    <i class="fas fa-circle fa-stack-2x"></i>
-                    <i class="{{ .icon }} fa-stack-1x fa-inverse"></i>
-                  </span>
-                </a>
-              </li>
-            {{- end -}}
-          {{ end }}
-          {{ if .Site.Params.rss }}
-          <li>
-            <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
-              <span class="fa-stack fa-lg">
-                <i class="fas fa-circle fa-stack-2x"></i>
-                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-              </span>
-            </a>
-          </li>
-          {{ end }}
-        </ul>
-        <p class="credits copyright text-muted">
-          &copy;
-          {{ if .Site.Author.name }}
-            {{ if .Site.Author.website }}
-              <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
-            {{ else }}
-              {{ .Site.Author.name }}
-            {{ end }}
-          {{ end }}
-          &nbsp;&bull;&nbsp;
-          {{ if .Site.Params.since }}
-            {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
-          {{ else }}
-            {{ .Site.LastChange.Format "2006" }}
-          {{ end }}
+  <ul class="list-inline text-center footer-links">
+    {{ range .Site.Data.beautifulhugo.social.social_icons }}
+      {{- if isset $.Site.Author .id }}
+        <li class="list-inline-item">
+          <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}">
+            <span class="fa-stack fa-lg">
+              <i class="fas fa-circle fa-stack-2x"></i>
+              <i class="{{ .icon }} fa-stack-1x fa-inverse"></i>
+            </span>
+          </a>
+        </li>
+      {{- end -}}
+    {{ end }}
+    {{ if .Site.Params.rss }}
+    <li>
+      <a href="{{ with .OutputFormats.Get "RSS" }}{{ .RelPermalink }}{{ end }}" title="RSS">
+        <span class="fa-stack fa-lg">
+          <i class="fas fa-circle fa-stack-2x"></i>
+          <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+        </span>
+      </a>
+    </li>
+    {{ end }}
+  </ul>
+  <p class="credits copyright text-muted">
+    &copy;
+    {{ if .Site.Author.name }}
+      {{ if .Site.Author.website }}
+        <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+      {{ else }}
+        {{ .Site.Author.name }}
+      {{ end }}
+    {{ end }}
+    &nbsp;&bull;&nbsp;
+    {{ if .Site.Params.since }}
+      {{ .Site.Params.since }} - {{ .Site.LastChange.Format "2006" }}
+    {{ else }}
+      {{ .Site.LastChange.Format "2006" }}
+    {{ end }}
 
-          {{ if .Site.Author.email }}
-            &nbsp;&bull;&nbsp;
-            <a href="mailto:{{ .Site.Author.email }}">{{ .Site.Author.email }}</a>
-          {{ end }}
-        </p>
-        <!-- Please don't remove this, keep my open source work credited :) -->
-        <p class="credits theme-by text-muted">
-          {{ i18n "poweredBy" . | safeHTML }}
-          {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.repoCommitsUrl }}{{ .GitInfo.Hash }}">{{ .GitInfo.AbbreviatedHash }}</a>]{{ end }}
-        </p>
-      </div>
-    </div>
-  </div>
+    {{ if .Site.Author.email }}
+      &nbsp;&bull;&nbsp;
+      <a href="mailto:{{ .Site.Author.email }}">{{ .Site.Author.email }}</a>
+    {{ end }}
+  </p>
+  <!-- Please don't remove this, keep my open source work credited :) -->
+  <p class="credits theme-by text-muted">
+    {{ i18n "poweredBy" . | safeHTML }}
+    {{ if $.GitInfo }}&nbsp;&bull;&nbsp;[<a href="{{ .Site.Params.repoCommitsUrl }}{{ .GitInfo.Hash }}">{{ .GitInfo.AbbreviatedHash }}</a>]{{ end }}
+  </p>
 </footer>
 
   {{ range .Site.Params.Imports.js }}
@@ -87,21 +81,23 @@
   <script async src="https://cse.google.com/cse.js?cx={{ .Site.Params.gcse }}"></script>
 {{ end }}
 
-{{ if .Site.Params.matomo }}
-  <!-- Matomo -->
-  <script type="text/javascript">
-      var _paq = window._paq || [];
-      _paq.push(['trackPageView']);
-      _paq.push(['enableLinkTracking']);
-      (function() {
-          var u="//{{ .Site.Params.matomo.server }}/";
-          _paq.push(['setTrackerUrl', u+'matomo.php']);
-          _paq.push(['setSiteId', '{{ .Site.Params.matomo.id }}']);
-          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-      })();
-  </script>
-  <!-- End Matomo Code -->
-{{ end }}
+  {{ if not .Site.BuildDrafts }}
+    {{ if .Site.Params.matomo }}
+      <!-- Matomo -->
+      <script type="text/javascript">
+          var _paq = window._paq || [];
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+              var u="//{{ .Site.Params.matomo.server }}/";
+              _paq.push(['setTrackerUrl', u+'matomo.php']);
+              _paq.push(['setSiteId', '{{ .Site.Params.matomo.id }}']);
+              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+          })();
+      </script>
+      <!-- End Matomo Code -->
+    {{ end }}
+  {{ end }}
 
 {{- partial "footer_custom.html" . }}

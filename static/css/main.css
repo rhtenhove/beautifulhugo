@@ -11,6 +11,12 @@ body {
   height: 100vh;
 }
 
+/*no gutters*/
+.row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .container[role=main] {
   margin-bottom: 50px;
   flex: 1 0 auto;
@@ -84,19 +90,15 @@ hr.small {
   padding-top: 80px;
 }
 
+/* Move all the content below the navbar */
+.content-container {
+  margin-top: 41px;
+}
+
 @media only screen and (min-width: 768px) {
-  .main-content {
-    padding-top: 130px;
+  .content-container {
+    margin-top: 81px;
   }
-}
-
-.main-explain-area {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  padding: 15px;
-}
-
-.hideme {
-  display: none;
 }
 
 div.panel-body a.list-group-item {
@@ -199,8 +201,7 @@ nav li a:focus {
     margin-right: 20px;
   }
 
-  nav .navbar-brand
-  {
+  nav .navbar-brand {
     margin: 0 20px;
   }
 
@@ -415,10 +416,6 @@ footer .theme-by {
   text-decoration: none;
 }
 
-.post-preview .post-entry {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 .post-entry-container {
   display: inline-block;
   width: 100%;
@@ -499,7 +496,8 @@ footer .theme-by {
 }
 
 @media only screen and (max-width: 500px) {
-  .post-image, .post-image img {
+  .post-image,
+  .post-image img {
     height: 100px;
     width: 100px;
   }
@@ -513,11 +511,9 @@ footer .theme-by {
 }
 
 /* --- Post and page headers --- */
-
 .intro-header.big-img {
   background: no-repeat center center;
   background-size: cover;
-  margin-top: 51px; /* The small navbar is 50px tall + 1px border */
   margin-bottom: 35px;
 }
 
@@ -536,12 +532,6 @@ footer .theme-by {
   padding: 100px 0;
   color: #FFF;
   text-shadow: 1px 1px 3px #000;
-}
-
-.intro-header h1 {
-  margin-top: 0;
-  font-size: 45px;
-  text-align: center;
 }
 
 .intro-header .page-heading .page-subheading,
@@ -584,12 +574,8 @@ footer .theme-by {
 }
 
 @media only screen and (min-width: 768px) {
-  .intro-header {
-    margin-top: 130px;
-  }
-
-  .intro-header.big-img {
-    margin-top: 80px; /* Full navbar is small navbar + 20px padding on each side when expanded */
+  .intro-header.no-img {
+    padding-top:40px;
   }
 
   .intro-header.big-img .page-heading,
@@ -610,6 +596,10 @@ footer .theme-by {
   .intro-header.big-img .img-desc {
     font-size: 14px;
   }
+}
+
+.header-section {
+  width: 100%;
 }
 
 .header-section.has-img .no-img {

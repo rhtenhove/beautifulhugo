@@ -1,3 +1,4 @@
+<div class="row justify-content-center">
 {{- partial "load-photoswipe-theme.html" . }}
 
   {{ if .Params.bigimg }}
@@ -12,10 +13,10 @@
       {{end}}></div>
   {{ end }}
 
-  <header class="header-section">
-      <div class="intro-header text-center {{ if .Params.bigimg }}big-img{{ else }}no-img{{ end }}">
+  <header class="header-section text-center">
+      <div class="intro-header {{ if .Params.bigimg }}big-img{{ else }}no-img{{ end }}">
           <div class="row justify-content-center">
-            <div class="col-lg-6">
+            <div class="col">
               <div class="{{ .Type }}-heading">
                 <h1>{{ .Params.title }}</h1>
                   {{ if .Params.subtitle }}
@@ -30,8 +31,10 @@
                     {{ partial "post_meta.html" . }}
                   {{ end }}
               </div>
+              {{ if .Params.bigimg }}<span class="img-desc"></span>{{ end }}
             </div>
           </div>
-        {{ if .Params.bigimg }}<span class="img-desc"></span>{{ end }}
+
       </div>
   </header>
+</div>
