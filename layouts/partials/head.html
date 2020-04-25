@@ -55,10 +55,12 @@
 {{- end -}}
 {{- end -}}
 
-  <link rel="stylesheet" href="{{ "css/main.css" | absURL }}" />
+{{ $css := resources.Get "css/main.css" | minify | fingerprint "sha512" }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" />
 
-  {{- if .Site.Params.staticman.use -}}
-  <link rel="stylesheet" href="{{ "css/staticman.css" | absURL }}" />
+  {{- if .Site.Params.staticman -}}
+    {{ $css := resources.Get "css/staticman.css" | minify | fingerprint "sha512" }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}" />
   {{- end -}}
 
 {{- partial "head_custom.html" . }}

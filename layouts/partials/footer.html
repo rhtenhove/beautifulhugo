@@ -64,13 +64,14 @@
     {{- end }}
   {{- end }}
 
-  <script src="{{ "js/main.js" | absURL }}"></script>
-  <script src="{{ "js/load-photoswipe.js" | absURL }}"></script>
+  {{ $script := resources.Get "js/main.js" | minify | fingerprint "sha512" }}
+  <script src="{{ $script.RelPermalink }}"></script>
 
 {{- if .Site.Params.staticman }}
-<script src="{{ "js/staticman.js" | absURL }}"></script>
+  {{ $script := resources.Get "js/staticman.js" | minify | fingerprint "sha512" }}
+  <script src="{{ $script.RelPermalink }}"></script>
   {{- if .Site.Params.staticman.recaptcha -}}
-  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src="https://google.com/recaptcha/api.js"></script>
   {{- end -}}
 {{- end }}
 
