@@ -85,20 +85,19 @@
   {{ if not .Site.BuildDrafts }}
     {{ if .Site.Params.matomo }}
       {{ with .Site.Params.matomo }}
-      <script src="{{ .jsUrl }}" integrity="{{ .jsIntegrity }}" crossorigin="anonymous" ></script>
-      {{ end }}
       <!-- Matomo -->
       <script type="text/javascript">
           var _paq = window._paq || [];
           _paq.push(['trackPageView']);
           _paq.push(['enableLinkTracking']);
           (function() {
-              var u="//{{ .Site.Params.matomo.server }}/";
+              var u="//{{ .server }}/";
               _paq.push(['setTrackerUrl', u+'matomo.php']);
-              _paq.push(['setSiteId', '{{ .Site.Params.matomo.id }}']);
-              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+              _paq.push(['setSiteId', '{{ .id }}']);
           })();
       </script>
+  <script src="{{ .jsUrl }}" integrity="{{ .jsIntegrity }}" crossorigin="anonymous" ></script>
+  {{ end }}
       <!-- End Matomo Code -->
     {{ end }}
   {{ end }}
